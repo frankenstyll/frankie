@@ -12,7 +12,7 @@ public class TestController {
 
 	@RequestMapping(value = { "test/index" })
 	public ModelAndView index(HttpServletRequest req, Model model) {
-		return new ModelAndView("index");
+		return new ModelAndView("index.jsp");
 	}
 
 }
