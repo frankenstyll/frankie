@@ -38,6 +38,9 @@
     Author: BootstrapMade.com
     License: https://bootstrapmade.com/license/
   ======================================================= -->
+  
+  <script src="js/angular.min.js"></script>
+  
 </head>
 
 <body>

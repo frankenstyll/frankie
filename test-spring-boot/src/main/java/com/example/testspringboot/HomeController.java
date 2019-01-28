@@ -24,7 +24,8 @@ public class HomeController {
 	public ModelAndView loginAuthorize(Model model ) {
 		System.out.println("*****************LOGINGIN******************");
 //		if( null != loginForm) {
-			return new ModelAndView("page/index");
+//			return new ModelAndView("page/index");
+		return new ModelAndView("page/testAngularScript");
 //		}else {
 //			model.addAttribute("Email or password is not currect");
 //			return "page/login";
