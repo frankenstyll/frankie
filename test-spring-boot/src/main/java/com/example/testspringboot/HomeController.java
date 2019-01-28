@@ -2,30 +2,33 @@ package com.example.testspringboot;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
-
-import com.example.bean.LoginForm;
+import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class HomeController {
 	
+//	@RequestMapping(value = { "/", "/login" })
+//	public String login( Model model) {
+//		System.out.println("*****************RESPONSE TO LOGIN PAGE******************");
+//        return "page/login";
+//    }
+	
 	@RequestMapping(value = { "/", "/login" })
-	public String home( Model model) {
+	public ModelAndView login( Model model) {
 		System.out.println("*****************RESPONSE TO LOGIN PAGE******************");
-        return "page/login";
+        return new ModelAndView("page/login");
     }
 	
 	@RequestMapping(value = { "/loginAuthorize" })
-	public String loginAuthorize(@ModelAttribute LoginForm loginForm, Model model ) {
+	public ModelAndView loginAuthorize(Model model ) {
 		System.out.println("*****************LOGINGIN******************");
-		if( null != loginForm) {
-			
-			return "page/index";
-		}else {
-			model.addAttribute("Email or password is not currect");
-			return "page/login";
-		}
+//		if( null != loginForm) {
+			return new ModelAndView("page/index");
+//		}else {
+//			model.addAttribute("Email or password is not currect");
+//			return "page/login";
+//		}
 	}
 	
 	@RequestMapping(value = { "/index" })
