@@ -31,9 +31,11 @@
 				
   <script src="js/angular.js"></script>
   
+<!--   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script> -->
+
 </head>
 
-<body ng-app="contactForm">
+<body > 
 
    <!--==========================
     Contact Section
@@ -46,23 +48,27 @@
         <p class="separator">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque</p>
       </div>
     </div>
-	
-	 <div ng-controller="MainController" class="container">
-	 	<div class="row justify-content-center">
+    
+	 <div  ng-app="ng-body"  class="container">
+	 	<div class="row justify-content-center" ng-controller="myController">
 	    	{{ message }}
 	    </div>
   	 </div>
 	<br/>
 	
-    <div class="container" ng-controller="contactBean">
-      <div class="row justify-content-center">
+    <div class="container" ng-app="ng-body2">
+      <div class="row justify-content-center" ng-controller="x">
 
         <div class="col-lg-3 col-md-4">
 
           <div class="info">
             <div>
               <i class="fa fa-map-marker"></i>
-              <p>A108 Adam Street<br>New York, NY 535022</p>
+              <p>
+              	A108 Adam Street<br>
+              	New York, NY 535022<br/>
+              	{{ number }}
+              </p>
             </div>
 
             <div class="email">
@@ -90,9 +96,12 @@
           <div class="form">
             <div id="sendmessage">Your message has been sent. Thank you!</div>
             <div id="errormessage"></div>
-            <form action="" method="post" role="form" class="">
+            <form action="" method="post" role="form" class="" >
               <div class="form-group">
-                <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" 
+                	data-rule="minlen:4" data-msg="Please enter at least 4 chars" 
+                	value="99"
+                	/>
                 <div class="validation"></div>
               </div>
               <div class="form-group">
@@ -117,17 +126,22 @@
  
  <script type="text/javascript">
  	//ANGULARJS
-	 var contactForm = angular.module('contactForm', []);
-	
-	 contactForm.controller('MainController', function($scope) {
+	 var contactForm = angular.module('ng-body', []);
+	 contactForm.controller('myController', function($scope) {
 	
 	     $scope.message = "Hello AngularJS";
+	     var x = 91;
+	     
+	     console.log("isString : "+angular.isString(x));
 	
 	 });
 	 
-// 	 contactForm.controller('contactBean', function($bean){
-// 		 //$bean.name = "xxx";
-// 	 });
+	 /*
+	 var myController2 = angular.module('ng-body2', [] );
+	 myController2.controller('x', function($scope){
+		 $scope.number = "000000000000000";
+	 });
+	 */
 	 
  </script>
 
